@@ -48,17 +48,22 @@ Lydia's objectives for this data-driven project are twofold:
 
 ## Hypothesis and how to validate?
 
-Hypothesis 1: Homes with larger overall living areas (GrLivArea), higher material quality (OverallQual), and newer construction years tend to have higher sale prices.
+### Hypothesis 1:
+Homes with larger overall living areas (`GrLivArea`), higher material quality (`OverallQual`), and newer construction years tend to have higher sale prices.
 
-Hypothesis 2: Features such as garage size, kitchen quality, and the presence of finished basement areas significantly contribute to the value of a property.
+### Hypothesis 2:
+Features such as garage size, kitchen quality, and the presence of finished basement areas significantly contribute to the value of a property.
 
-Validation Strategy:
+---
 
-Perform correlation analysis and data visualizations (scatterplots, heatmaps) to explore relationships between individual features and SalePrice.
+### Validation Strategy:
 
-Use regression modeling to quantify the impact of specific variables on sale price and evaluate the accuracy using metrics such as R² and RMSE.
+- Perform **correlation analysis** and create **data visualizations** (e.g., scatterplots and heatmaps) to explore the relationships between individual features and `SalePrice`.
 
-Test the trained model's predictions on Lydia's inherited properties to verify performance on real-use scenarios.
+- Use **regression modeling** to quantify the impact of specific variables on the target variable (`SalePrice`) and evaluate the model’s accuracy using metrics such as **R² score** and **RMSE** (Root Mean Squared Error).
+
+- Test the trained model by running predictions on **Lydia’s four inherited properties** to verify real-world performance and usability.
+
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
