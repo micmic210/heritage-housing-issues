@@ -46,6 +46,63 @@ Lydia's objectives for this data-driven project are twofold:
 
 2. She needs to predict the expected sale price for her four inherited houses based on their characteristics. Additionally, she wishes to use this tool to estimate the price of any other property in Ames she might consider buying in the future.
 
+---
+## User Stories and Acceptance Criteria
+
+### User Story 1: Understand Property Value Drivers
+
+**As** a property owner who is unfamiliar with the local market,  
+**I want** to understand which house attributes most influence the sale price,  
+**So that** I can make informed decisions when evaluating or improving my inherited properties.
+
+#### Acceptance Criteria:
+- I can view clear data visualizations that show how different house attributes correlate with sale price.
+- I can access a summary of the most important variables influencing price.
+- I can inspect the dataset structure (number of rows/columns, sample entries).
+- I can view scatterplots and a heatmap showing relationships between variables and sale price.
+
+---
+
+### User Story 2: Predict Sale Price for My Inherited Homes
+
+**As** a property owner,  
+**I want** to input house attributes and receive a predicted sale price,  
+**So that** I can estimate the value of the properties I inherited in Ames, Iowa.
+
+#### Acceptance Criteria:
+- I can enter information for each of the four inherited houses.
+- I receive a predicted sale price for each house based on the ML model.
+- I see a total estimated value for all four houses combined.
+- I can use the “Predict Sale Price” button to get the output from the trained pipeline.
+
+---
+
+### User Story 3: Learn from Data-Driven Hypotheses
+
+**As** a client who is curious about housing trends,  
+**I want** to see project hypotheses and whether the data supports them,  
+**So that** I can better understand the logic behind the model and predictions.
+
+#### Acceptance Criteria:
+- I can read a list of hypotheses related to housing prices (e.g., size, quality, year built).
+- I can view conclusions based on correlation and visual analysis.
+- I understand how each hypothesis was validated or rejected using the data.
+
+---
+
+### User Story 4: Evaluate Model Performance
+
+**As** a client using this tool for decision-making,  
+**I want** to know how accurate the model is and what features it relies on,  
+**So that** I can trust the predictions provided by the tool.
+
+#### Acceptance Criteria:
+- I can see which variables are most important in the model (feature importance).
+- I can view key performance metrics (e.g., R² score, RMSE).
+- I understand the general steps taken to build and evaluate the machine learning model.
+
+---
+
 ## Hypothesis and how to validate?
 
 ### Hypothesis 1:
@@ -54,8 +111,6 @@ Homes with larger overall living areas (`GrLivArea`), higher material quality (`
 ### Hypothesis 2:
 Features such as garage size, kitchen quality, and the presence of finished basement areas significantly contribute to the value of a property.
 
----
-
 ### Validation Strategy:
 
 - Perform **correlation analysis** and create **data visualizations** (e.g., scatterplots and heatmaps) to explore the relationships between individual features and `SalePrice`.
@@ -63,6 +118,89 @@ Features such as garage size, kitchen quality, and the presence of finished base
 - Use **regression modeling** to quantify the impact of specific variables on the target variable (`SalePrice`) and evaluate the model’s accuracy using metrics such as **R² score** and **RMSE** (Root Mean Squared Error).
 
 - Test the trained model by running predictions on **Lydia’s four inherited properties** to verify real-world performance and usability.
+
+---
+
+## CRISP-DM Process Mapping
+
+This project follows the CRISP-DM (Cross-Industry Standard Process for Data Mining) framework to ensure a structured and business-oriented approach to data science.
+
+---
+
+### 1. Business Understanding
+
+The client, Lydia Doe, has inherited four houses in Ames, Iowa. She seeks to:
+
+- Understand which features most influence a property’s sale price in that region.
+- Predict the expected sale price for her inherited homes and other similar properties.
+
+These goals are addressed by delivering a user-friendly, data-driven prediction tool supported by explanatory analysis.
+
+---
+
+### 2. Data Understanding
+
+The dataset used comes from [Kaggle - Ames Housing Dataset](https://www.kaggle.com/codeinstitute/housing-prices-data), containing approximately 1,500 records of house sales in Ames, Iowa, with 20+ features including:
+
+- Property dimensions (e.g., `GrLivArea`, `LotArea`)
+- Quality ratings (e.g., `OverallQual`, `KitchenQual`)
+- Year built/remodeled
+- Garage and basement details
+- Target variable: `SalePrice`
+
+Initial EDA (Exploratory Data Analysis) was performed to understand distributions, identify missing data, and explore variable relationships.
+
+---
+
+### 3. Data Preparation
+
+Data preparation steps included:
+
+- Handling missing values (e.g., imputing or removing)
+- Encoding categorical features (e.g., `KitchenQual`, `GarageFinish`)
+- Scaling/normalizing numeric variables when required
+- Feature selection based on correlation with the target variable
+
+A clean dataset was generated for use in regression modeling.
+
+---
+
+### 4. Modeling
+
+Several regression models were evaluated to predict `SalePrice`, including:
+
+- Linear Regression  
+- Random Forest Regressor  
+- Gradient Boosting Regressor  
+
+Model performance was evaluated using:
+
+- **R² Score** (to measure how well the model explains the variance in sale price)
+- **RMSE** (Root Mean Squared Error)
+
+The best-performing model was selected for deployment in the Streamlit app.
+
+---
+
+### 5. Evaluation
+
+Model performance was verified against business expectations:
+
+- The model provides reasonable predictions for Lydia’s inherited homes.
+- The most important predictive features aligned with user intuition and hypotheses (e.g., house size, quality).
+
+Visual performance summaries (e.g., feature importance plot, actual vs. predicted price) are included in the dashboard.
+
+---
+
+### 6. Deployment
+
+The final model is integrated into an interactive Streamlit web application that allows:
+
+- Exploratory data insights for the client
+- Real-time sale price predictions based on user inputs
+
+The application is deployed via Heroku, making it accessible online to Lydia and potential stakeholders.
 
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
