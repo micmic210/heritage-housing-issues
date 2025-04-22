@@ -109,15 +109,20 @@ Lydia's objectives for this data-driven project are twofold:
 Homes with larger overall living areas (`GrLivArea`), higher material quality (`OverallQual`), and newer construction years tend to have higher sale prices.
 
 ### Hypothesis 2:
-Features such as garage size, kitchen quality, and the presence of finished basement areas significantly contribute to the value of a property.
+Features such as garage size (`GarageArea`), kitchen quality (`KitchenQual`), and the presence of finished basement areas significantly contribute to the value of a property.
+
+### Null Hypotheses for Statistical Tests:
+- **H₀₁:** There is no linear correlation between `OverallQual` and `SalePrice`.
+- **H₀₂:** The mean `SalePrice` is the same across different categories of `BsmtExposure`.
 
 ### Validation Strategy:
+- Perform **correlation analysis** and create **data visualizations** (e.g., scatterplots, heatmaps) to explore relationships between individual features and `SalePrice`.
+- Conduct **Pearson** and **Spearman** correlation tests for continuous features (e.g., `OverallQual`).
+- Use **one-way ANOVA** to examine differences in `SalePrice` across `BsmtExposure` categories.
+- Use **regression modeling** to quantify the impact of specific variables on `SalePrice` and evaluate model accuracy using metrics like **R²** and **RMSE**.
+- Test predictions on **Lydia’s four inherited properties** to verify real-world performance and usability.
 
-- Perform **correlation analysis** and create **data visualizations** (e.g., scatterplots and heatmaps) to explore the relationships between individual features and `SalePrice`.
 
-- Use **regression modeling** to quantify the impact of specific variables on the target variable (`SalePrice`) and evaluate the model’s accuracy using metrics such as **R² score** and **RMSE** (Root Mean Squared Error).
-
-- Test the trained model by running predictions on **Lydia’s four inherited properties** to verify real-world performance and usability.
 
 ---
 
